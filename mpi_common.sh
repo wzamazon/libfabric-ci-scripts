@@ -27,7 +27,7 @@ function ompi_setup {
 }
 
 function impi_setup {
-    source /opt/intel/compilers_and_libraries/linux/mpi/intel64/bin/mpivars.sh
+    source /opt/intel/compilers_and_libraries/linux/mpi/intel64/bin/mpivars.sh -ofi_internal=0
     export I_MPI_DEBUG=1
     export MPI_ARGS=""
 }

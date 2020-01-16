@@ -31,10 +31,11 @@ efa_software_components_minimal()
         EFA_INSTALLER_URL="https://s3-us-west-2.amazonaws.com/aws-efa-installer/aws-efa-installer-latest.tar.gz"
     fi
 
+    echo "set -x" >> ${tmp_script}
     echo "curl -o efa-installer.tar.gz $EFA_INSTALLER_URL" >> ${tmp_script}
     echo "tar -xf efa-installer.tar.gz" >> ${tmp_script}
     echo "cd \${HOME}/aws-efa-installer" >> ${tmp_script}
-    echo "sudo ./efa_installer.sh -m -y" >> ${tmp_script}
+    echo "sudo ./efa_installer.sh -y" >> ${tmp_script}
     echo ". /etc/profile.d/efa.sh" >> ${tmp_script}
 }
 
