@@ -27,6 +27,7 @@ function ompi_setup {
 }
 
 function impi_setup {
+    rm ~/.ssh/known_hosts
     source /opt/intel/compilers_and_libraries/linux/mpi/intel64/bin/mpivars.sh -ofi_internal=0
     export I_MPI_DEBUG=1
     export MPI_ARGS=""
