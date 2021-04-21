@@ -300,7 +300,7 @@ create_instance()
     fi
 
     echo "==> Creating instances"
-    while [ ${error} -ne 0 ] && [ ${create_instance_count} -lt 30 ]; do
+    while [ ${error} -ne 0 ] && [ ${create_instance_count} -lt 5 ]; do
         for subnet in ${subnet_ids[@]}; do
             error=1
             set +e
@@ -345,7 +345,7 @@ create_instance()
         create_instance_count=$((create_instance_count+1))
     done
 
-    if [ $create_instance_count -eq 30 ]; then
+    if [ $create_instance_count -eq 5 ]; then
         echo "Cannot allocate instances after 30 attempts. Exiting ...."
         #error code 65 has been used to
         # identify unstable build
