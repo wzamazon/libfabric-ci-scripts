@@ -344,6 +344,13 @@ create_instance()
         sleep 2m
         create_instance_count=$((create_instance_count+1))
     done
+
+    if [ $create_instance_count -eq 30 ]; then
+        echo "Cannot allocate instances after 30 attempts. Exiting ...."
+        #error code 65 has been used to
+        # identify unstable build
+        exit 65
+    fi
 }
 
 # Holds testing every 15 seconds for 40 attempts until the instance status check is ok
